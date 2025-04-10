@@ -1,0 +1,59 @@
+import bolichito-Kiguez.personas.*
+import bolichito-Kiguez.objetos.*
+import bolichito-Kiguez.bolichito.*
+import colores.*
+
+
+test "El bolichito tiene 2 objetos brillantes, por lo tanto es brillante" {
+    vidriera.AgregarElObjeto_(muñeco)
+    mostrador.AgregarElObjeto_(placa)
+  assert.that(bolichito.esBrillante())
+}
+
+test "El bolichito tiene un solo objeto brillante, por lo tanto no es brillante" {
+    vidriera.AgregarElObjeto_(muñeco)
+    assert.notThat(bolichito.esBrillante())
+}
+
+test "El bolichito tiene 2 objetos celestes, por lo tanto es monocromatico" {
+    vidriera.AgregarElObjeto_(muñeco)
+    mostrador.AgregarElObjeto_(arito)
+    assert.that(bolichito.esMonocromatico())
+}
+
+test "El bolichito tiene solo un objeto celeste, por lo tanto no es monocromatico" {
+    mostrador.AgregarElObjeto_(arito)
+    assert.notThat(bolichito.esMonocromatico())
+}
+
+test "El bolichito tiene un objeto en el mostrador que pesa mas que el de la vidriera, por lo tanto
+      esta equilbrado" {
+    assert.that(bolichito.estaEquilibrado())
+}
+
+test "El bolichito tiene un objeto en el mostrador que pesa menos que el de la vidriera, por lo tanto
+      no esta equilbrado" {
+    vidriera.AgregarElObjeto_(biblioteca)
+    assert.notThat(bolichito.estaEquilibrado())
+}
+
+test "El bolichito tiene objeto de color rojo" {
+    assert.that(bolichito.tieneUnObjetoDeColor_(rojo))
+}
+
+test "El bolichito no esta desequilibrado ni es monocromatico por lo tanto no puede mejorar" {
+    assert.notThat(bolichito.puedeMejorar())
+}
+
+test "El bolichito es monocromatico, por lo tanto puede mejorar" {
+    vidriera.AgregarElObjeto_(muñeco)
+    mostrador.AgregarElObjeto_(arito)
+    assert.that(bolichito.puedeMejorar())
+}
+
+test "el bolichito tiene la remera en la vidriera y la pelota en el mostrador, entonces puede ofrecerle algo a
+      Estefanía (la remera) y a Juan (la pelota) pero no a Luisa (porque no le gustan ni la remera ni la pelota)." {
+    assert.that(bolichito.seLePuedeOfrecerAlgoA_(estefania))
+    assert.that(bolichito.seLePuedeOfrecerAlgoA_(juan))
+    assert.notThat(bolichito.seLePuedeOfrecerAlgoA_(luisa))
+}

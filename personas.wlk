@@ -18,7 +18,7 @@ object luisa {
 
 object juan {
     method leGusta_(cosa) {
-        return cosa.color().esColorFuerte() == false or
+        return (not cosa.color().esColorFuerte()) or
                (cosa.peso() >= 1200 and cosa.peso() <= 1800) 
     }
 }

@@ -21,14 +21,14 @@ object bolichito {
 
     method tieneUnObjetoDeColor_(color) {
         return
-            vidriera.colorDelObjeto()  == color or 
-            mostrador.colorDelObjeto() == color
+            vidriera.objeto().color()  == color or 
+            mostrador.objeto().color() == color
     }
 
     method puedeMejorar() {
         return
             self.esMonocromatico() or 
-            self.estaEquilibrado()
+            not self.estaEquilibrado()
     }
 
     method seLePuedeOfrecerAlgoA_(persona) {
@@ -46,10 +46,6 @@ object vidriera {
     method AgregarElObjeto_(unObjeto) {
         objeto = unObjeto
     }
-
-    method colorDelObjeto() {
-        return self.objeto().color()
-    }
 }
 
 object mostrador {
@@ -59,9 +55,5 @@ object mostrador {
     
     method AgregarElObjeto_(unObjeto) {
         objeto = unObjeto
-    }
-
-    method colorDelObjeto() {
-        return self.objeto().color()
     }
 }
