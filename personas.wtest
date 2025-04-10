@@ -1,0 +1,84 @@
+import colores.*
+import personas.*
+import objetos.*
+
+test "A rosa le gusta la pelota" {
+  assert.that(rosa.leGusta_(pelota))
+}
+
+test "A rosa le gusta una remera" {
+    assert.that(rosa.leGusta_(remera))
+}
+
+test "Puedo cambiar el peso del muñeco" {
+  muñeco.peso(1500)
+  assert.equals(1500, muñeco.peso())
+}
+
+test "A rosa le gusta el muñeco" {
+    muñeco.peso(1500)
+    assert.that(rosa.leGusta_(muñeco))
+}
+
+test "A rosa no le gusta la biblioteca" {
+    assert.that(not rosa.leGusta_(biblioteca))
+}
+
+test "A rosa no le gusta la placa" {
+  placa.peso(3500)
+  assert.that(not rosa.leGusta_(placa))
+}
+
+test "A estefania le gusta la placa" {
+    placa.color(rojo)
+    assert.that(estefania.leGusta_(placa))
+}
+
+test "A estefania le gusta la biblioteca" {
+    assert.that(estefania.leGusta_(biblioteca))
+}
+
+test "A estefania no le gusta la pelota parda de cuero" {
+    assert.that(not estefania.leGusta_(pelota))
+}
+
+test "A estefania no le gusta el muñeco celeste de vidrio" {
+    assert.that(not estefania.leGusta_(muñeco))
+}
+
+test "A luisa le gusta la placa de cobre" {
+    assert.that(luisa.leGusta_(placa))
+}
+
+test "A luisa le gusta el muñeco de vidrio" {
+    assert.that(luisa.leGusta_(muñeco))
+}
+
+test "A luisa no le gusta la remera" {
+    assert.that(not luisa.leGusta_(remera))
+}
+
+test "A luisa no le gusta la pelota" {
+    assert.that(not luisa.leGusta_(pelota))
+}
+
+test "A juan le gusta la pelota" {
+    assert.that(juan.leGusta_(pelota))
+}
+
+test "A juan le gusta el muñeco" {
+    assert.that(juan.leGusta_(muñeco))
+}
+
+test "A juan le gusta la placa de 1500 gramos"  {
+    placa.peso(1500)
+    assert.that(juan.leGusta_(placa))
+}
+
+test "A juan no le gusta la biblioteca" {
+    assert.that(not juan.leGusta_(biblioteca))
+}
+
+test "A juan no le gusta la remera" {
+    assert.that(not juan.leGusta_(remera))
+}
